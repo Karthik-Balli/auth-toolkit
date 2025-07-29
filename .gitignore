@@ -1,0 +1,47 @@
+# Node.js dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.next/
+.vite/
+out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# dotenv environment files
+.env
+.env.*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# ESLint and Prettier caches
+.eslintcache
+
+# Optional lock files (keep only one based on your package manager)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Coverage reports
+coverage/
+
+# Local dev storage
+*.local
+.cache/

@@ -26,7 +26,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("/api/auth/signup", form, {
+      const res = await axios.post("/api/auth/register", form, {
         withCredentials: true,
       });
 

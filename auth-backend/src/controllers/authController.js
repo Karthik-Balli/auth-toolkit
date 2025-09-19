@@ -2,6 +2,9 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/userModel.js';
 import { generateAccessToken, generateRefreshToken } from '../utils/generateToken.js';
+import { OAuth2Client } from "google-auth-library";
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 // Creating a generateToken function to create JWT tokens
 const generateToken = (userId) => {
@@ -91,6 +94,50 @@ export const loginUser = async (req, res) => {
         return res.status(500).json({ message: 'Server error' });
     }
 }
+
+// @desc Google OAuth (SPA flow)
+// @route POST /api/auth/google
+// @access Public
+export const googleLogin = async (req, res) => {
+  try {
+    const { credential } = req.body;
+
+    const ticket = await client.verifyIdToken({
+      idToken: credential,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+
+    let user = await User.findOne({ email: payload.email });
+
+    if (!user) {
+      user = new User({
+        name: payload.name,
+        email: payload.email,
+        googleId: payload.sub, // unique Google user id
+        picture: payload.picture,
+        password: null, // skip password
+      });
+      await user.save();
+    }
+
+    // issue your JWT here
+    res.json({
+      success: true,
+      user: {
+        id: user._id,
+        email: user.email,
+        name: user.name,
+        picture: user.picture,
+      },
+    });
+  } catch (err) {
+    console.error("Google login error:", err);
+    res.status(500).json({ error: "Google login failed" });
+  }
+};
+
 
 // @desc   Logout user (handled on frontend)
 // @route  POST /api/auth/logout

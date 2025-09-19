@@ -4,6 +4,7 @@ import Button from "../components/ui/Button";
 import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -28,10 +29,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md"
+        className="flex flex-col gap-2 bg-white p-6 rounded-lg shadow-xl w-full max-w-md"
       >
         <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
 
@@ -62,6 +63,7 @@ const Login = () => {
             Sign Up
           </a>
         </p>
+        <GoogleLoginButton />
       </form>
     </div>
   );

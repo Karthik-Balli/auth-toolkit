@@ -13,8 +13,16 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, 'Please enter your password'],
+      required: function () {
+        return !this.googleId; // password required only if not a Google login
+      },
     },
+    googleId: {
+      type: String,
+      unique: true,
+      sparse: true, // allows null for non-google users
+    },
+    picture: String,
     role: {
       type: String,
       enum: ['user', 'admin'],

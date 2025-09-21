@@ -241,7 +241,7 @@ export const refreshToken = async (req, res) => {
       accessToken,
     });
   } catch (err) {
-    console.error('>>>Refresh Error:', err);
+    console.error('Refresh Error:', err);
     res.status(500).json({ message: 'Server error' });
   }
 };

@@ -5,9 +5,12 @@ import jwt from 'jsonwebtoken';
  * @param {string} userId
  * @returns {string} JWT token
  */
+/**
+ * Utility: Generate Access Token (short-lived, ~15m)
+ */
 const generateAccessToken = (userId) => {
-  return jwt.sign({ userId }, process.env.JWT_ACCESS_SECRET, {
-    expiresIn: '15m',
+  return jwt.sign({ id: userId }, process.env.JWT_ACCESS_SECRET, {
+    expiresIn: "15m",
   });
 };
 
@@ -16,9 +19,12 @@ const generateAccessToken = (userId) => {
  * @param {string} userId
  * @returns {string} JWT token
  */
+/**
+ * Utility: Generate Refresh Token (long-lived, ~7d)
+ */
 const generateRefreshToken = (userId) => {
-  return jwt.sign({ userId }, process.env.JWT_REFRESH_SECRET, {
-    expiresIn: '7d',
+  return jwt.sign({ id: userId }, process.env.JWT_REFRESH_SECRET, {
+    expiresIn: "7d",
   });
 };
 

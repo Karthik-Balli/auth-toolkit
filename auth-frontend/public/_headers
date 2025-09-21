@@ -1,0 +1,23 @@
+# public/_headers - Place this file in your public folder
+
+# Fix JavaScript MIME type issues
+*.js
+  Content-Type: application/javascript; charset=utf-8
+*.mjs  
+  Content-Type: application/javascript; charset=utf-8
+*.jsx
+  Content-Type: application/javascript; charset=utf-8
+
+# Handle module scripts
+/assets/*.js
+  Content-Type: application/javascript; charset=utf-8
+  X-Content-Type-Options: nosniff
+
+# CSS files
+*.css
+  Content-Type: text/css; charset=utf-8
+
+# Handle client-side routing
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff

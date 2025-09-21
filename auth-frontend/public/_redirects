@@ -1,0 +1,7 @@
+# public/_redirects - Place this file in your public folder
+
+# Handle client-side routing (SPA)
+/*    /index.html   200
+
+# API redirects (if you need to proxy API calls)
+# /api/*  https://your-backend-app.onrender.com/api/:splat  200

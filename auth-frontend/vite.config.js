@@ -9,12 +9,13 @@ export default defineConfig({
     tailwindcss()
   ],
   server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:3001", // Backend server
-        changeOrigin: true,
-        secure: false,
-      },
-    },
+    // proxy: {
+    //   "/api": {
+    //     // target: "http://localhost:3001", // Backend server
+    //     target: "https://auth-toolkit-backend.onrender.com", // Production backend server
+    //     changeOrigin: true,
+    //     secure: false,
+    //   },
+    // },
   },
 })

@@ -2,9 +2,9 @@ import { useState } from "react";
 import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
 import useAuth from "../hooks/useAuth";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import GoogleLoginButton from "../components/GoogleLoginButton";
+import api from "../services/axiosInstance";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -17,7 +17,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/auth/login", form, {
+      const res = await api.post("/api/auth/login", form, {
         withCredentials: true,
       });
       login(res.data.user, res.data.accessToken);

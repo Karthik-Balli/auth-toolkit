@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
           console.log("📭 No valid tokens in localStorage");
         }
         
-        const refreshResponse = await api.post("/auth/refresh");
+        const refreshResponse = await api.post("api/auth/refresh");
 
         if (refreshResponse?.data?.accessToken && refreshResponse?.data?.user) {
           dispatch({
@@ -90,7 +90,7 @@ export const AuthProvider = ({ children }) => {
   // Logout function
   const logout = async () => {    
     try {
-      await api.post("/auth/logout");
+      await api.post("/api/auth/logout");
     } catch (err) {
       console.error("❌ Server logout failed:", err);
     } finally {

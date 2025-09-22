@@ -3,7 +3,8 @@ import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../services/axiosInstance";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 
 const Signup = () => {
   const [form, setForm] = useState({
@@ -26,7 +27,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("/api/auth/register", form, {
+      const res = await api.post("/api/auth/register", form, {
         withCredentials: true,
       });
 
@@ -85,6 +86,11 @@ const Signup = () => {
             Login here
           </a>
         </p>
+
+        <div className="flex flex-col justify-center items-center gap-2 mt-2">
+          <p className="text-sm mt-4 text-center">Continue with Google Account</p>
+          <GoogleLoginButton />
+        </div>
       </form>
     </div>
   );

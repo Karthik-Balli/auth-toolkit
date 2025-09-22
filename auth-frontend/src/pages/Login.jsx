@@ -63,7 +63,9 @@ const Login = () => {
             Sign Up
           </a>
         </p>
-        <GoogleLoginButton />
+        <div className="flex justify-center items-center mt-2">
+          <GoogleLoginButton />
+        </div>
       </form>
     </div>
   );

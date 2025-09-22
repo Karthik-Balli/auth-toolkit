@@ -10,6 +10,7 @@ const GoogleLoginButton = () => {
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/auth/google`,
         { credential: response.credential },
+        { withCredentials: true }
       );
 
       // Save user + tokens in context

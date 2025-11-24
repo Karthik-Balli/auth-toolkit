@@ -1,0 +1,56 @@
+# -----------------------------------------------------------------------------
+# General Operating System Files
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+
+# -----------------------------------------------------------------------------
+# Byte-compiled / Optimized files
+# -----------------------------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# -----------------------------------------------------------------------------
+# Environment & Dependencies
+# -----------------------------------------------------------------------------
+# Virtual environment directory
+/venv
+/env
+/ENV
+.venv
+
+# Dependency installation files (often generated during install/build)
+pip-log.txt
+.pip_log
+pip-log.txt.log
+
+# -----------------------------------------------------------------------------
+# Python Testing and Coverage
+# -----------------------------------------------------------------------------
+.pytest_cache
+.coverage
+htmlcov/
+
+# -----------------------------------------------------------------------------
+# FastAPI / Django / Framework Specific
+# -----------------------------------------------------------------------------
+# SQLite Database (often used in development with Django/Flask)
+*.db
+*.sqlite3
+
+# Django-specific settings/secret files (Crucial for security)
+# Ignore local settings files that contain secrets
+local_settings.py
+settings_local.py
+config/secrets.py
+
+# -----------------------------------------------------------------------------
+# Editors/IDEs (VS Code, Jupyter, IntelliJ)
+# -----------------------------------------------------------------------------
+.idea/             # IntelliJ/PyCharm/WebStorm project files
+*.swp              # Vim swap files
+.history/          # VS Code local history
